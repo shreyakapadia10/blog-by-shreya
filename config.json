@@ -2,7 +2,7 @@
   "params": {
     "is_local_server": false,
     "local_url": "mysql://root:@localhost/myblog",
-    "DATABASE_URL": "postgres://vwebhsbfvmkvjl:e9e5591dff3a1152e7a9f94a6a28c6684c141efd107bb4374951f126e4b6f9d7@ec2-54-196-111-158.compute-1.amazonaws.com:5432/d385ngfp8r2hbk",
+    "DATABASE_URL": "postgres://pjrxjtkhlzermn:b2f9d9c1721a94bac9509060c72959f888cb0941ffef46fd8c25b44c6a0b53e2@ec2-52-71-231-37.compute-1.amazonaws.com:5432/d36rtb7tife98b",
     "blog_title": "Programmer's Hub",
     "tag_line": "A Blog by Cool Programmer",
     "fb_url": "https://www.facebook.com/shreyakapadia.108/",
