@@ -30,7 +30,7 @@ is_local_server = params['is_local_server']
 if is_local_server:
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_url']
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_url']
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 db = SQLAlchemy(app)
 
