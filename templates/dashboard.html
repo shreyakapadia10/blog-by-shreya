@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead mb-0" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Dashboard</h1>
+            <span class="subheading">Welcome Back!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Alert Start -->
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <!-- Alert End -->
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>Basic Actions</h1>
+        <a href="/edit/0"><button class="btn btn-primary">Add a Post</button></a>
+        <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <hr>
+<!--         
+        <h1>Upload a File</h1>
+        <form method="POST" action="/uploader" enctype="multipart/form-data">
+          <input type="file" name="file1">
+          <button type="Submit" class="btn btn-primary">Submit</button>
+        </form>
+        <hr>
+ -->
+        <h3>Manage Posts</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Post No.</th>
+              <th scope="col">Post Title</th>
+              <th scope="col">Post Date</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in posts %}
+              <tr>
+                <th scope="row">{{ post.post_id }}</th>
+                <td>{{ post.post_title }}</td>
+                <td>{{ post.post_date }}</td>
+                <td><a href="/edit/{{post.post_id}}"><button class="btn btn-primary">Edit</button></a></td>
+                <td><a href="/delete/{{post.post_id}}"><button class="btn btn-danger">Delete</button></a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      <!-- </div> -->
+    </div>
+  </div>
+
+{% endblock %}

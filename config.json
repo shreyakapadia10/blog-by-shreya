@@ -1,0 +1,19 @@
+{
+  "params": {
+    "is_local_server": false,
+    "local_url": "mysql://root:@localhost/myblog",
+    "prod_url": "mysql://root:@localhost/myblog",
+    "blog_title": "Programmer's Hub",
+    "tag_line": "A Blog by Cool Programmer",
+    "fb_url": "https://www.facebook.com/shreyakapadia.108/",
+    "tw_url": "https://twitter.com/shreya_varuniac",
+    "gh_url": "https://github.com/shreyakapadia10",
+    "gmail_user": "shreyaprogrammer@gmail.com",
+    "gmail_pass": "flaskapp123",
+    "about_me": "Hello Shreya Kapadia here, I'm newbie in Flask. I'm currently a B.Tech student of 3rd year.",
+    "no_of_posts": 3,
+    "admin_username": "admin",
+    "admin_password": "admin",
+    "upload_location": "\\static\\img"
+  }
+}

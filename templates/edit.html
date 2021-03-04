@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead mb-0" style="background-image: url('{{ url_for('static', filename='img/about-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Manage Post</h1>
+            <span class="subheading">Add/Update Post Details</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Alert Start -->
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <!-- Alert End -->
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>Basic Actions</h1>
+        <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
+        <a href="/edit/0"><button class="btn btn-primary">Add a Post</button></a>
+        <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <hr>
+        <!-- 
+        <h1>Upload a File</h1>
+        <form method="POST" action="/uploader" enctype="multipart/form-data">
+          <input type="file" name="file1">
+          <button type="Submit" class="btn btn-primary">Submit</button>
+        </form>
+        <hr>
+         -->
+        <h1>Manage Post</h1>
+        <form name="editForm" id="editForm" action="/edit/{{post_id}}" method="POST" enctype="multipart/form-data">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Post Title</label>
+              <input type="text" class="form-control" placeholder="Post Title" name="title" id="title" required data-validation-required-message="Please enter post title." value="{{post.post_title}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Post Subtitle</label>
+              <input type="text" class="form-control" placeholder="Post Subtitle" name="s_title" id="s_title" required data-validation-required-message="Please enter post subtitle." value="{{post.post_subtitle}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Post Slug</label>
+              <input type="text" class="form-control" placeholder="Post Slug" id="slug" name="slug" required data-validation-required-message="Please enter post slug." value="{{post.post_slug}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Post Author</label>
+              <input type="text" class="form-control" placeholder="Post Author" id="author" name="author" required data-validation-required-message="Please enter post author name." value="{{post.post_author}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Image Name</label>
+              <!-- Uploader -->
+              <input type="file" name="file1">{{post.post_img}}
+              <input type="hidden" name="filename" value="{{post.post_img}}">
+              <!-- End Uploader -->
+              <!-- <input type="text" class="form-control" placeholder="Image File Name" id="img" name="img" required data-validation-required-message="Please enter post image." value="{{post.post_img}}">
+              <p class="help-block text-danger"></p> -->
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Post Content</label>
+              <textarea rows="5" class="form-control" placeholder="Post Content" id="content" name="content" required data-validation-required-message="Please enter post content.">{{post.post_content}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

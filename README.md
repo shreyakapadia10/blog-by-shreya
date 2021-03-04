@@ -1,2 +1,2 @@
-# blog-by-shreya
-This blog is made with the help of Flask and Python
+# Flask-Web-Developement
+ A blog created using Python and Flask
